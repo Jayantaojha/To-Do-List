@@ -8,8 +8,9 @@ body {
     padding: 4vh;
     background: linear-gradient(to right, #f4f4f4, #e0e0e0);
     color: #333333;
-    font-family: cursive;
-    font-size: large;
+    font-family: Arial, sans-serif;
+    /* font-family: cursive;
+    font-size: large; */
 }
 
 h1 {
@@ -69,6 +70,8 @@ h1 {
 @media only screen and (max-width: 600px) {
     body {
         padding: 2vh;
+        font-family: cursive;
+        font-size: large;
     }
 
     #new-task {
