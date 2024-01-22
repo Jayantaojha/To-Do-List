@@ -14,7 +14,7 @@ const colors = [
     {
         gradient: 'linear-gradient(to right, #0099FF, #66CCFF)', // blue
         h1Color: '#083D77',
-        buttonColor: '#ffffff', 
+        buttonColor: '#ffffff',
         buttonBgColor: '#335C81',
     },
     {
@@ -26,7 +26,7 @@ const colors = [
     },
     {
         gradient: 'linear-gradient(to right, #FF8C5A, #FF6060)', // pink
-        h1Color: '#FFFFFF', 
+        h1Color: '#FFFFFF',
         buttonColor: '#fff',
         buttonBgColor: '#A64253',
 
@@ -40,7 +40,7 @@ const colors = [
     },
     {
         gradient: 'linear-gradient(to right, #FF6B6B, #FF8E53)', // orange-pink
-        h1Color: '#FFFFFF', 
+        h1Color: '#FFFFFF',
         buttonColor: '#FFFFFF',
         buttonBgColor: '#65334D',
     },
@@ -140,7 +140,7 @@ function debounce(func, wait) {
 colorIndex = 0;
 
 const handleDoubleClick = debounce(() => {
-    
+
     if (colorIndex !== colors.length) {
         document.body.style.background = colors[colorIndex].gradient;
         h1.style.color = colors[colorIndex].h1Color;
