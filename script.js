@@ -1,3 +1,4 @@
+const h1 = document.querySelector('h1');
 const body = document.querySelector('body');
 const button = document.querySelector('#new-task button');
 const data = document.querySelector('#new-task input');
@@ -6,38 +7,48 @@ let taskList = document.querySelector('#task-list');
 const colors = [
     {
         gradient: 'linear-gradient(to right, #333333, #000000)', // black
-        text: '#FFFFFF', // White text color
-        button: '#FFFFFF' // White button color
+        h1Color: '#FFFFFF',
+        buttonColor: '#FFFFFF',
+        buttonBgColor: '#007BFF',
     },
     {
         gradient: 'linear-gradient(to right, #0099FF, #66CCFF)', // blue
-        text: '#007BFF', // Default text color
-        button: '#007BFF' // Default button color
+        h1Color: '#083D77',
+        buttonColor: '#ffffff', 
+        buttonBgColor: '#335C81',
     },
     {
         gradient: 'linear-gradient(to right, #8CC84B, #5A8F28)', // light-green
-        text: '#007BFF', // Default text color
-        button: '#007BFF' // Default button color
+        h1Color: '#2A3C24',
+        buttonColor: '#ffffff',
+        // buttonBgColor: '#335C81',
+        buttonBgColor: '#243010',
     },
     {
         gradient: 'linear-gradient(to right, #FF8C5A, #FF6060)', // pink
-        text: '#FFFFFF', // White text color
-        button: '#FFFFFF' // White button color
+        h1Color: '#FFFFFF', 
+        buttonColor: '#fff',
+        buttonBgColor: '#A64253',
+
     },
     {
         gradient: 'linear-gradient(to right, #FFD89B, #19547B)', // grey-blue
-        text: '#FFFFFF', // White text color
-        button: '#FFFFFF' // White button color
+        h1Color: '#FFFFFF',
+        buttonColor: '#FFFFFF',
+        buttonBgColor: '#292F36',
+
     },
     {
         gradient: 'linear-gradient(to right, #FF6B6B, #FF8E53)', // orange-pink
-        text: '#FFFFFF', // White text color
-        button: '#FFFFFF' // White button color
+        h1Color: '#FFFFFF', 
+        buttonColor: '#FFFFFF',
+        buttonBgColor: '#65334D',
     },
     {
         gradient: 'linear-gradient(to right, #0093E9, #80D0C7)', // skyblue
-        text: '#007BFF', // Default text color
-        button: '#007BFF' // Default button color
+        h1Color: '#083D77',
+        buttonColor: '#fff',
+        buttonBgColor: '#083D77',
     }
 ];
 
@@ -130,15 +141,26 @@ colorIndex = 0;
 
 const handleDoubleClick = debounce(() => {
     
-    if (colorIndex !== 7) {
+    if (colorIndex !== colors.length) {
         document.body.style.background = colors[colorIndex].gradient;
+        h1.style.color = colors[colorIndex].h1Color;
+        button.style.color = colors[colorIndex].buttonColor;
+        button.style.backgroundColor = colors[colorIndex].buttonBgColor;
+
         colorIndex++;
     }
     else {
         document.body.style.background = 'linear-gradient(to right, #f4f4f4, #e0e0e0)';
+        h1.style.color = '#007BFF';
+        button.style.color = '#ffffff';
+        button.style.backgroundColor = '#007BFF';
+
         colorIndex = 0;
     }
 
 }, 300);
 
 document.addEventListener('dblclick', handleDoubleClick);
+
+
+// ------------------------ for long-press -> settings open ----------------------------------
