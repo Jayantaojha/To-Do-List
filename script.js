@@ -78,25 +78,24 @@ button.addEventListener('click', () => {
 
 function addTask(inputValue) {
     const div = document.createElement('div'); // for new task
+    div.className = "task";
+    div.innerHTML = `
+        <i class="fas fa-check-circle status-icon" style="cursor: pointer;"></i>
+        <p class="task-string">${inputValue}</p>
+        <i class="fa-solid fa-trash" style="color: red; cursor: pointer; margin-left: auto; margin-right: 5px; opacity: 0.3;"></i>
+    `;
+
+    // Select the elements after setting innerHTML
     const deleteIcon = div.querySelector('.fa-trash'); // for delete icon
     const statusIcon = div.querySelector('.status-icon'); // to check done/undone a task
     const taskString = div.querySelector('.task-string');
-
-
-    // styling for the new task
-    div.className = "task";
-    div.innerHTML = `<i class="fas fa-check-circle status-icon" style="cursor: pointer;"></i>
-    <p class="task-string">${inputValue}</p>
-    <i class="fa-solid fa-trash" style="color: red; cursor: pointer; margin-left: auto; margin-right: 5px; opacity: 0.3;"></i>`;
-
 
     // add new task in the taskList on index.html
     taskList.appendChild(div);
     data.value = '';
 
-
     // event listener on delete icon for hover and click
-    deleteIcon.addEventListener('mouseover', function () {
+    deleteIcon.addEventListener('mouseover', () => {
         deleteIcon.style.opacity = "1";
     });
 
@@ -108,13 +107,13 @@ function addTask(inputValue) {
         deleteTask(div);
     });
 
-
     // to check done or undone a task
     statusIcon.addEventListener('click', () => {
         changeStatus(statusIcon, taskString, inputValue);
     });
-
+    
 }
+
 
 // to change the status of a task (complete/ incomplete)
 function changeStatus(statusIcon, taskString, inputValue) {
